@@ -6,6 +6,8 @@ import Fab from '@material-ui/core/Fab';
 
 const Form = styled.form`
   width: 80%;
+  max-width: 800px;
+  margin-top: 50px;
   padding: 15px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   display: flex;

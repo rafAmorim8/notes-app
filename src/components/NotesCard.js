@@ -8,6 +8,30 @@ const Card = styled.li`
   list-style: none;
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
   padding: 20px;
+  transition: box-shadow 250ms ease-in-out; 
+  position: relative;
+
+  &:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  }
+
+  h3{
+    margin-bottom: 10px;
+  }
+
+  pre{
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+
+  div {
+    display: flex;
+    justify-content: flex-end;
+    /* border: 1px solid green; */
+
+    .btn-icon{
+    }
+  }
 `;
 
 const NotesCard = ({ note }) => {
@@ -16,11 +40,11 @@ const NotesCard = ({ note }) => {
       <h3>{note.title}</h3>
       <pre>{note.text}</pre>
       <div>
-        <IconButton aria-label="delete" className="btn-delete" onClick={e => console.log('delete')}>
-          <DeleteIcon fontSize="small" />
-        </IconButton>
-        <IconButton aria-label="edit" className="btn-edit" onClick={e => console.log('edit')}>
+        <IconButton aria-label="edit" className="btn-edit btn-icon" onClick={e => console.log('edit')}>
           <EditIcon fontSize="small" />
+        </IconButton>
+        <IconButton aria-label="delete" className="btn-delete btn-icon" onClick={e => console.log('delete')}>
+          <DeleteIcon fontSize="small" />
         </IconButton>
       </div>
     </Card>
