@@ -91,6 +91,7 @@ const NotesForm = () => {
     if (!editNote) {
       setTitle('');
       setText('');
+      setId('');
     } else {
       setTitle(editNote.title);
       setText(editNote.text);
