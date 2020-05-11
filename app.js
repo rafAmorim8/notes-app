@@ -1,9 +1,9 @@
 import React from 'react';
-import './App.css';
+import './src/App.css';
 
-import NotesContextProvider from './contexts/NotesContext';
-import NotesForm from './components/NotesForm';
-import NotesList from './components/NotesList';
+import NotesContextProvider from './src/contexts/NotesContext';
+import NotesForm from './src/components/NotesForm';
+import NotesList from './src/components/NotesList';
 
 function App() {
   return (
