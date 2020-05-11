@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { NotesStateContext, NotesDispatchContext } from '../contexts/NotesContext';
+import { NotesDispatchContext } from '../contexts/NotesContext';
 import styled from 'styled-components';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
