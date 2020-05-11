@@ -1,7 +1,8 @@
-import React, { useContext, useState } from 'react';
-import { NotesDispatchContext } from '../contexts/NotesContext';
+import React, { useContext, useState, useEffect } from 'react';
+import { NotesDispatchContext, NotesStateContext } from '../contexts/NotesContext';
 import styled from 'styled-components';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import EditIcon from '@material-ui/icons/Edit';
 
 const Form = styled.form`
   width: 80%;
@@ -45,33 +46,57 @@ const Form = styled.form`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #f50057;
     border-radius: 50%;
     box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    color: #FFF;
 
     span{
-      color: #FFF;
       font-size: 1.8em;
     }
+  }
+
+  .btn-add{
+    background: #f50057;
+  }
+
+  .btn-edit{
+    background: #42a5f5;
   }
 `;
 
 const NotesForm = () => {
-  // const state = useContext(NotesStateContext);
+  const { editNote } = useContext(NotesStateContext);
   const dispatch = useContext(NotesDispatchContext);
   const [text, setText] = useState('');
   const [title, setTitle] = useState('');
+  const [id, setId] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    dispatch({
-      type: 'ADD_NOTE', text, title
-    });
-
+    if (!editNote) {
+      dispatch({
+        type: 'ADD_NOTE', text, title
+      });
+    } else {
+      dispatch({
+        type: 'EDIT_NOTE', text, title, id
+      });
+    }
     setText('');
     setTitle('');
   }
+
+  useEffect(() => {
+    if (!editNote) {
+      setTitle('');
+      setText('');
+    } else {
+      setTitle(editNote.title);
+      setText(editNote.text);
+      setId(editNote.id)
+    }
+  }, [editNote])
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -92,9 +117,16 @@ const NotesForm = () => {
         placeholder='Enter your note content here...'
         multiline
       />
-      <button className="btn-add">
-        <span>+</span>
-      </button>
+      {
+        !editNote ?
+          <button className="btn-add" aria-label="Add">
+            <span>+</span>
+          </button> :
+          <button className="btn-edit" aria-label="Edit">
+            <EditIcon />
+          </button>
+      }
+
     </Form >
   )
 }

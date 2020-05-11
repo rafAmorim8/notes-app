@@ -51,6 +51,12 @@ const NotesCard = ({ note }) => {
       type: 'DELETE_NOTE', id
     });
   }
+
+  const findNote = id => {
+    dispatch({
+      type: 'FIND_NOTE', id
+    });
+  }
   return (
     <Card className="notes-item">
       <div className="card-content">
@@ -59,7 +65,7 @@ const NotesCard = ({ note }) => {
 
       </div>
       <div>
-        <IconButton aria-label="edit" className="btn-edit btn-icon" onClick={e => console.log('edit')}>
+        <IconButton aria-label="edit" className="btn-edit btn-icon" onClick={e => findNote(note.id)}>
           <EditIcon fontSize="small" />
         </IconButton>
         <IconButton aria-label="delete" className="btn-delete btn-icon" onClick={e => deleteNote(note.id)}>

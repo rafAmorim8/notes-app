@@ -2,13 +2,13 @@ import uuid from 'uuid/v1';
 
 export const NotesState = {
   notes: JSON.parse(localStorage.getItem('notes')) || [],
-  editNote: [],
+  editNote: null,
 }
 
 export const NotesReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_NOTE': {
-      let temp = [...state.notes];
+      let tempNotes = [...state.notes];
       let newNote = {
         id: uuid(),
         title: action.title,
@@ -19,11 +19,11 @@ export const NotesReducer = (state, action) => {
       if (!newNote.title && !newNote.text) {
         return { ...state }
       } else {
-        temp.push(newNote);
+        tempNotes.push(newNote);
 
         return {
           ...state,
-          notes: [...temp],
+          notes: [...tempNotes],
         }
       }
     };
@@ -35,6 +35,23 @@ export const NotesReducer = (state, action) => {
         notes: [...updatedNotes]
       }
     };
+    case 'FIND_NOTE': {
+      const noteFound = state.notes.find(note => note.id === action.id);
+      console.log(action.id);
+      return {
+        ...state,
+        editNote: noteFound
+      }
+    };
+    case 'EDIT_NOTE': {
+      const tempNotes = state.notes.map(note => (note.id === action.id ? { title: action.title, text: action.text, id: action.id } : note));
+
+      return {
+        ...state,
+        notes: [...tempNotes],
+        editNote: null
+      }
+    }
     default:
       return state;
   }
