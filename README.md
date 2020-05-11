@@ -64,8 +64,4 @@ $ npm start
 ```
 
 ---
-<<<<<<< HEAD
 Made by Rafael Amorim :wave: [Get in touch!](https://www.linkedin.com/in/rafael-manacero-amorim/)
-=======
-Made by Rafael Amorim :wave: [Get in touch!](https://www.linkedin.com/in/rafael-manacero-amorim/)
->>>>>>> 85a7764cc682ae85ec9f4907cde1000d8e7fae4a
