@@ -27,11 +27,25 @@ export const NotesReducer = (state, action) => {
         title: action.title,
         text: action.text
       }
-      temp.push(newNote);
 
+      // Only adds new note if it has either a title or text
+      if (!newNote.title && !newNote.text) {
+        return { ...state }
+      } else {
+        temp.push(newNote);
+
+        return {
+          ...state,
+          notes: [...temp],
+        }
+      }
+    };
+    case 'DELETE_NOTE': {
+      let currNotes = [...state.notes];
+      let updatedNotes = currNotes.filter(note => note.id !== action.id);
       return {
         ...state,
-        notes: [...temp],
+        notes: [...updatedNotes]
       }
     };
     default:

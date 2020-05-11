@@ -24,6 +24,7 @@ const Form = styled.form`
 
   textarea{
     resize: none;
+    font-size: 0.9em;
   }
 
   input, textarea{
@@ -39,9 +40,8 @@ const Form = styled.form`
 `;
 
 const NotesForm = () => {
-  const state = useContext(NotesStateContext);
+  // const state = useContext(NotesStateContext);
   const dispatch = useContext(NotesDispatchContext);
-  // const { test, test2 } = state;
   const [text, setText] = useState('');
   const [title, setTitle] = useState('');
 

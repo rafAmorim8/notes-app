@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { NotesStateContext, NotesDispatchContext } from '../contexts/NotesContext';
 import styled from 'styled-components';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -21,20 +22,23 @@ const Card = styled.li`
 
   pre{
     margin-bottom: 15px;
-    font-size: 14px;
+    font-size: 0.9em;
   }
 
   div {
     display: flex;
     justify-content: flex-end;
-    /* border: 1px solid green; */
-
-    .btn-icon{
-    }
   }
 `;
 
 const NotesCard = ({ note }) => {
+  // const state = useContext(NotesStateContext);
+  const dispatch = useContext(NotesDispatchContext);
+  const deleteNote = id => {
+    dispatch({
+      type: 'DELETE_NOTE', id
+    });
+  }
   return (
     <Card className="notes-item">
       <h3>{note.title}</h3>
@@ -43,7 +47,7 @@ const NotesCard = ({ note }) => {
         <IconButton aria-label="edit" className="btn-edit btn-icon" onClick={e => console.log('edit')}>
           <EditIcon fontSize="small" />
         </IconButton>
-        <IconButton aria-label="delete" className="btn-delete btn-icon" onClick={e => console.log('delete')}>
+        <IconButton aria-label="delete" className="btn-delete btn-icon" onClick={e => deleteNote(note.id)}>
           <DeleteIcon fontSize="small" />
         </IconButton>
       </div>
