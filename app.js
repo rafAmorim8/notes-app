@@ -1,19 +1,11 @@
-import React from 'react';
-import './src/App.css';
+const express = require('express');
+const path = require('path');
+const app = express();
 
-import NotesContextProvider from './src/contexts/NotesContext';
-import NotesForm from './src/components/NotesForm';
-import NotesList from './src/components/NotesList';
+app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
-function App() {
-  return (
-    <NotesContextProvider>
-      <div className="wrapper">
-        <NotesForm />
-        <NotesList />
-      </div>
-    </NotesContextProvider>
-  );
-}
-
-export default App;
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+app.listen(9000);
