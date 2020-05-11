@@ -19,7 +19,7 @@
 <p align="center">
   <a href="#computer-demo">Demo</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#books-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;
 </p>
 
 ## :computer: Demo
@@ -35,9 +35,33 @@
 This personal project was developed to gain experience with the following technologies:
 
 - [ReactJS](https://reactjs.org/)
+- [React Hooks](https://reactjs.org/docs/hooks-intro.html)
 - [styled-components](https://www.styled-components.com/)
 - [Material-UI](https://material-ui.com/)
+- [UUID](https://www.npmjs.com/package/uuid)
 - [VS Code](https://code.visualstudio.com/)
+
+## :information_source: How To Use
+
+To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com/) or [Npm](https://www.npmjs.com/) installed on your computer. From your command line:
+
+```bash
+# Clone this repository
+$ git clone https://github.com/rafAmorim8/notes-app
+
+# Go into the repository
+$ cd notes-app
+
+# Install dependencies
+$ yarn install
+or
+$ npm install
+
+# Run the app
+$ yarn start
+or
+$ npm start
+```
 
 ---
 Made by Rafael Amorim :wave: [Get in touch!](https://www.linkedin.com/in/rafael-manacero-amorim/)
