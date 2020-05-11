@@ -7,23 +7,36 @@ import EditIcon from '@material-ui/icons/Edit';
 
 const Card = styled.li`
   list-style: none;
-  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  box-shadow: 0 0 2px rgba(0,0,0,0.3);
+  border-radius: 5px;
   padding: 20px;
-  transition: box-shadow 250ms ease-in-out; 
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: box-shadow 250ms ease-in-out; 
 
   &:hover{
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
   }
 
-  h3{
-    margin-bottom: 10px;
+  .card-content{
+    display: flex;
+    flex-direction: column;
+ 
+    h3{
+      margin-bottom: 10px;
+      overflow-wrap: break-word;
+    }
+
+    pre{
+      white-space: pre-wrap;
+      margin-bottom: 15px;
+      font-size: 0.9em;
+      overflow-wrap: break-word;
+    }
   }
 
-  pre{
-    margin-bottom: 15px;
-    font-size: 0.9em;
-  }
 
   div {
     display: flex;
@@ -32,7 +45,6 @@ const Card = styled.li`
 `;
 
 const NotesCard = ({ note }) => {
-  // const state = useContext(NotesStateContext);
   const dispatch = useContext(NotesDispatchContext);
   const deleteNote = id => {
     dispatch({
@@ -41,8 +53,11 @@ const NotesCard = ({ note }) => {
   }
   return (
     <Card className="notes-item">
-      <h3>{note.title}</h3>
-      <pre>{note.text}</pre>
+      <div className="card-content">
+        <h3>{note.title}</h3>
+        <pre>{note.text}</pre>
+
+      </div>
       <div>
         <IconButton aria-label="edit" className="btn-edit btn-icon" onClick={e => console.log('edit')}>
           <EditIcon fontSize="small" />

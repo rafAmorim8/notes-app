@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { NotesDispatchContext } from '../contexts/NotesContext';
 import styled from 'styled-components';
-import AddIcon from '@material-ui/icons/Add';
-import Fab from '@material-ui/core/Fab';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
 const Form = styled.form`
   width: 80%;
   max-width: 800px;
+  max-height: 50vh;
   margin-top: 50px;
   padding: 15px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -22,9 +22,13 @@ const Form = styled.form`
     margin-bottom: 10px;
   }
 
-  textarea{
+  #notes-textarea{
+    display: block;
+    min-height: 100px;
+    max-height: 60vh;
     resize: none;
     font-size: 0.9em;
+    line-height: 20px;
   }
 
   input, textarea{
@@ -72,6 +76,7 @@ const NotesForm = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <input
+        aria-label="Notes title"
         type="text"
         name="note-title"
         id="note-title"
@@ -79,23 +84,18 @@ const NotesForm = () => {
         onChange={e => setTitle(e.target.value)}
         placeholder='Title'
       />
-      <textarea
-        name="note-text"
-        id="note-text"
-        cols="30"
-        rows="5"
+      <TextareaAutosize
+        aria-label="Notes content"
+        id="notes-textarea"
         value={text}
         onChange={e => setText(e.target.value)}
-        placeholder='Enter your note content here'
-      >
-      </textarea>
-      {/* <Fab size="small" color="secondary" aria-label="add">
-        <AddIcon />
-      </Fab> */}
+        placeholder='Enter your note content here...'
+        multiline
+      />
       <button className="btn-add">
         <span>+</span>
       </button>
-    </Form>
+    </Form >
   )
 }
 

@@ -12,6 +12,10 @@ const Notes = styled.div`
     grid-gap: 25px;
     margin: 30px auto 0 auto;
   }
+
+  .empty-notes {
+    text-align: center;
+  }
 `;
 
 const NotesList = () => {
@@ -27,7 +31,7 @@ const NotesList = () => {
           })}
         </ul>
       ) : (
-          <div className="empty-notes">No Notes</div>
+          <div className="empty-notes">You have no notes.</div>
         )}
     </Notes>
   )
