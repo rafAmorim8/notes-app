@@ -24,10 +24,10 @@
 
 ## :computer: Demo
 <p id="demo" align="center">
-  <img alt="Website Demo" src="https://res.cloudinary.com/dokwfizst/image/upload/c_scale,w_553/v1588804503/rafAmorim/codePartner.gif">
+  
 </p>
 <p align="center">
-<a href="https://raffcode.com/projects/codePartner/index.php">See Live Demo</a>
+<a href="https://take-notes-app.herokuapp.com/">See Live Demo</a>
 </p>
 
 ## :books: Technologies
