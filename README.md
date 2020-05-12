@@ -24,7 +24,7 @@
 
 ## :computer: Demo
 <p id="demo" align="center">
-  
+  <img alt="Website Demo" src="https://res.cloudinary.com/dokwfizst/image/upload/v1589243350/rafAmorim/notes-app-demo_chts2g.gif">
 </p>
 <p align="center">
 <a href="https://take-notes-app.herokuapp.com/">See Live Demo</a>
